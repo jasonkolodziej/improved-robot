@@ -49,6 +49,6 @@ jobs:
           LTAG=${{fromJson(steps.fetchSwVer.outputs.currentResponse).tag_name}}
           ASSET_NAMES=${{fromJson(steps.fetchSwVer.outputs.currentResponse).assets.*.name}}
           ASSET_DL=${{fromJson(steps.fetchSwVer.outputs.currentResponse).assets.*.browser_download_url}}
-          NAMES=${{join(ASSET_NAMES)}}
+          NAMES=${{join(fromJson(steps.fetchSwVer.outputs.currentResponse).assets.*.name)}}
           echo "Latest Release: ${LTAG}"
           echo "With assets: $NAMES"
