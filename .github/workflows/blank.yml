@@ -35,7 +35,7 @@ jobs:
       - name: Fetch SW Release Version
         id: fetchSwVer
         run: |
-          latestContent=`curl ${env.CURL_FLAG} ${env.SW_URL}`
+          latestContent=`curl ${{env.CURL_FLAG}} ${{env.SW_URL}}`
           # curl -sL https://api.github.com/repos/chris2511/xca/releases/latest > xca-release.json
           latestContent="${latestContent//'%'/'%25'}"
           latestContent="${latestContent//$'\n'/'%0A'}"
