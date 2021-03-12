@@ -37,9 +37,6 @@ jobs:
         run: |
           latestContent=`curl ${{env.CURL_FLAG}} ${{env.SW_URL}}`
           # curl -sL https://api.github.com/repos/chris2511/xca/releases/latest > xca-release.json
-          latestContent="${latestContent//'%'/'%25'}"
-          latestContent="${latestContent//$'\n'/'%0A'}"
-          latestContent="${latestContent//$'\r'/'%0D'}"
           # end of optional handling for multi line json
           echo ${latestContent}
           # echo "::set-output name=prevResponse::${currentContent}"
