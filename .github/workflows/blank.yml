@@ -38,6 +38,9 @@ jobs:
           latestContent=`curl ${{env.CURL_FLAG}} ${{env.SW_URL}}`
           # curl -sL https://api.github.com/repos/chris2511/xca/releases/latest > xca-release.json
           # end of optional handling for multi line json
-          echo ${latestContent}
-          # echo "::set-output name=prevResponse::${currentContent}"
-          # echo "::set-output name=currentResponse::${latestContent}"
+          echo "::set-output name=currentResponse::${latestContent}"
+      - name: Parse Curl Response
+        id: parseURLs
+        run: |
+          LTAG=${{fromJson(steps.fetchSwVer.outputs.currentResponse).tag_name}}
+          echo ${LTAG}
