@@ -24,7 +24,7 @@ jobs:
       CURL_FLAG: "-sL"
       POST_URL: "/releases/latest"
       PRE_URL: "/repos/"
-      SW_URL: $GITHUB_API_URL
+      SW_URL: $GITHUB_API_URL $PRE_URL
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
